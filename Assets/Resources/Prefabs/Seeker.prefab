@@ -55,6 +55,9 @@ GameObject:
   - component: {fileID: 23602971449705432}
   - component: {fileID: 114542834247369916}
   - component: {fileID: 114502472434197978}
+  - component: {fileID: 114422026898581006}
+  - component: {fileID: 114491950352857062}
+  - component: {fileID: 114585641598603360}
   m_Layer: 0
   m_Name: Seeker
   m_TagString: Unit
@@ -285,6 +288,48 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294906117
+--- !u!114 &114422026898581006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332496619897340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c6360233fd94e1bb8dc7c5ef1bd81f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepsPerFrame: 100
+  pathCost: 0
+  numberOfExpandedNodes: 0
+  numberOfVisited: 0
+  maxListSize: 0
+  listSizeLimit: 5000
+  maxNumberOfExpanded: 5000
+  maxNumberOfVisited: 1000
+  startPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
+--- !u!114 &114491950352857062
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332496619897340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dca3e15ceeef43ddb84936826b05f0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepsPerFrame: 100
+  pathCost: 0
+  numberOfExpandedNodes: 0
+  numberOfVisited: 0
+  maxListSize: 0
+  listSizeLimit: 5000
+  maxNumberOfExpanded: 5000
+  maxNumberOfVisited: 1000
+  startPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
 --- !u!114 &114502472434197978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -331,3 +376,25 @@ MonoBehaviour:
   nodesExpanded: 0
   nodesVisited: 0
   pathCost: 0
+--- !u!114 &114585641598603360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332496619897340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0318380ee65024f969cca1462d08241b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepsPerFrame: 100
+  pathCost: 0
+  numberOfExpandedNodes: 0
+  numberOfVisited: 0
+  maxListSize: 0
+  listSizeLimit: 5000
+  maxNumberOfExpanded: 5000
+  maxNumberOfVisited: 1000
+  startPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
+  maxDepth: 0
