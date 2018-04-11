@@ -804,7 +804,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4821824955017446, guid: fed3d405e91c546ab9b7160fbcd7dab2, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 3.93
+      value: 3.37
       objectReference: {fileID: 0}
     - target: {fileID: 114502472434197978, guid: fed3d405e91c546ab9b7160fbcd7dab2,
         type: 2}
@@ -829,7 +829,7 @@ Prefab:
     - target: {fileID: 114491950352857062, guid: fed3d405e91c546ab9b7160fbcd7dab2,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114422026898581006, guid: fed3d405e91c546ab9b7160fbcd7dab2,
         type: 2}
@@ -875,6 +875,16 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114513034966827226, guid: fed3d405e91c546ab9b7160fbcd7dab2,
+        type: 2}
+      propertyPath: listSizeLimit
+      value: 200000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114513034966827226, guid: fed3d405e91c546ab9b7160fbcd7dab2,
+        type: 2}
+      propertyPath: maxNumberOfExpanded
+      value: 300000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fed3d405e91c546ab9b7160fbcd7dab2, type: 2}
