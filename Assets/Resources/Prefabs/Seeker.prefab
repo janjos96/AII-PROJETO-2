@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 114491950352857062}
   - component: {fileID: 114585641598603360}
   - component: {fileID: 114513034966827226}
+  - component: {fileID: 114898083114090000}
   m_Layer: 0
   m_Name: Seeker
   m_TagString: Unit
@@ -420,3 +421,26 @@ MonoBehaviour:
   startPos: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}
   maxDepth: 0
+--- !u!114 &114898083114090000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332496619897340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ec405042223bbe43891abbe87232a13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepsPerFrame: 100
+  pathCost: 0
+  numberOfExpandedNodes: 0
+  numberOfVisited: 0
+  maxListSize: 0
+  listSizeLimit: 5000
+  maxNumberOfExpanded: 5000
+  maxNumberOfVisited: 1000
+  startPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
+  nivel: 0
+  maxdepth: 0
