@@ -286,16 +286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab3d47809ac84c441a26cfc5fdecbba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepsPerFrame: 100
-  pathCost: 0
-  numberOfExpandedNodes: 0
-  numberOfVisited: 0
-  maxListSize: 0
-  listSizeLimit: 100
-  maxNumberOfExpanded: 1000
-  maxNumberOfVisited: 1000
-  startPos: {x: 0, y: 0, z: 0}
-  targetPos: {x: 0, y: 0, z: 0}
 --- !u!114 &436333126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,20 +297,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be2912da2da0fd6438dbc79c1a02edad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepsPerFrame: 100
-  pathCost: 0
-  numberOfExpandedNodes: 0
-  numberOfVisited: 0
-  maxNumberOfExpanded: 1000
-  maxNumberOfVisited: 1000
-  startPos: {x: 0, y: 0, z: 0}
-  targetPos: {x: 0, y: 0, z: 0}
-  numberOfSteps: 0
-  pathSize: 0
-  foundPath: 0
-  running: 0
-  finished: 0
-  nivel_max: 20
 --- !u!1 &450842577
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,7 +885,7 @@ Prefab:
     - target: {fileID: 114585641598603360, guid: fed3d405e91c546ab9b7160fbcd7dab2,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114513034966827226, guid: fed3d405e91c546ab9b7160fbcd7dab2,
         type: 2}
@@ -925,6 +901,26 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114898083114090000, guid: fed3d405e91c546ab9b7160fbcd7dab2,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241873160885290, guid: fed3d405e91c546ab9b7160fbcd7dab2,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114793087681066076, guid: fed3d405e91c546ab9b7160fbcd7dab2,
+        type: 2}
+      propertyPath: listSizeLimit
+      value: 50000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114793087681066076, guid: fed3d405e91c546ab9b7160fbcd7dab2,
+        type: 2}
+      propertyPath: maxNumberOfExpanded
+      value: 50000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fed3d405e91c546ab9b7160fbcd7dab2, type: 2}

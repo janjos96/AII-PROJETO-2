@@ -14,6 +14,7 @@ public class UniformCostSearch : SearchAlgorithm
         targetNode = GridMap.instance.NodeFromWorldPoint(targetPos);
 
         SearchState start = new SearchState(startNode, 0);
+        openQueue = new PriorityQueue();
         openQueue.Add(start, 0);
 
     }
@@ -50,7 +51,7 @@ public class UniformCostSearch : SearchAlgorithm
         {
             finished = true;
             running = false;
-            foundPath = true;
+            //foundPath = true;
         }
 
     }

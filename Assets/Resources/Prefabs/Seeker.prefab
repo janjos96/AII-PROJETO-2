@@ -60,6 +60,8 @@ GameObject:
   - component: {fileID: 114585641598603360}
   - component: {fileID: 114513034966827226}
   - component: {fileID: 114898083114090000}
+  - component: {fileID: 114241873160885290}
+  - component: {fileID: 114793087681066076}
   m_Layer: 0
   m_Name: Seeker
   m_TagString: Unit
@@ -290,6 +292,27 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294906117
+--- !u!114 &114241873160885290
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332496619897340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68a0f236abf904dab94f25b95b5c5c0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepsPerFrame: 100
+  pathCost: 0
+  numberOfExpandedNodes: 0
+  numberOfVisited: 0
+  maxListSize: 0
+  listSizeLimit: 5000
+  maxNumberOfExpanded: 5000
+  maxNumberOfVisited: 1000
+  startPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
 --- !u!114 &114422026898581006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -421,6 +444,27 @@ MonoBehaviour:
   startPos: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}
   maxDepth: 0
+--- !u!114 &114793087681066076
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332496619897340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 906ff9b88e41d448bb35cf8d548fdefa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepsPerFrame: 100
+  pathCost: 0
+  numberOfExpandedNodes: 0
+  numberOfVisited: 0
+  maxListSize: 0
+  listSizeLimit: 5000
+  maxNumberOfExpanded: 5000
+  maxNumberOfVisited: 1000
+  startPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
 --- !u!114 &114898083114090000
 MonoBehaviour:
   m_ObjectHideFlags: 1

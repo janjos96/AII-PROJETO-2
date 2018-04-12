@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomSearch : SearchAlgorithm {
+public class AAsterisco : SearchAlgorithm
+{
 
-    private List<SearchState> openList;
-    private int random;
+    private PriorityQueue openQueue = new PriorityQueue();
+
 
     protected override void Begin()
     {
@@ -13,17 +13,17 @@ public class RandomSearch : SearchAlgorithm {
         targetNode = GridMap.instance.NodeFromWorldPoint(targetPos);
 
         SearchState start = new SearchState(startNode, 0);
-        openList = new List<SearchState>();
-        openList.Add(start);
+        openQueue = new PriorityQueue();
+        openQueue.Add(start, 0);
 
     }
 
     protected override void Step()
     {
 
-        if (openList.Count > 0)
+        if (openQueue.Count > 0)
         {
-            SearchState currentState = openList[openList.Count-1-random];
+            SearchState currentState = openQueue.PopFirst();
             VisitNode(currentState);
             if (currentState.node == targetNode)
             {
@@ -36,24 +36,27 @@ public class RandomSearch : SearchAlgorithm {
             {
                 foreach (Node suc in GetNodeSucessors(currentState.node))
                 {
-                    SearchState new_node = new SearchState(suc, suc.gCost + currentState.g, currentState);
-                    openList.Add(new_node);
+                    SearchState new_node = new SearchState(suc, suc.gCost + currentState.g, GetHeuristic(suc), currentState);
+                    openQueue.Add(new_node, (int)new_node.f);
                 }
                 // for energy
-                if ((ulong)openList.Count > maxListSize)
+                if ((ulong)openQueue.Count > maxListSize)
                 {
-                    maxListSize = (ulong)openList.Count;
+                    maxListSize = (ulong)openQueue.Count;
                 }
             }
-            random = Random.Range(0, 3);
         }
         else
         {
             finished = true;
             running = false;
-            //foundPath = true;
         }
 
     }
 
+    protected virtual int GetHeuristic(Node suc)
+    {
+        int distancia = Mathf.Abs(targetNode.gridX - suc.gridX) + Mathf.Abs(targetNode.gridY - suc.gridY);
+        return distancia;
+    }
 }
