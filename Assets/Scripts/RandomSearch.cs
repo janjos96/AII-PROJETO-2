@@ -8,12 +8,11 @@ public class RandomSearch : SearchAlgorithm {
     private int random;
 
     //1 Começa a fazer uma lista com o estado inicial
-    //2 Entra no ciclo e caso a lista não esteja vazia retira o elemento no fim da lista
-    //menos um fator aleatório de maneira a ir buscar entre os 4 últimos valores inseridos
+    //2 Entra no ciclo e caso a lista não esteja vazia retira o unico elemento da lista
     //Analisa e verifica se é solução
     //Se for solução devolve o elemento 
-    //Como é possivel numa lista ir buscar o último elemento, é gerado um valor aleatório de 0 a 3
-    //para subtrair ao fim da lista e ir buscar aletóriamente um de 4 nós nesse mesmo fim
+    //O algoritmo aleatório tem apenas um nó guardado em cada momento por isso se o nó não for solução
+    //o algoritmo apaga a lista e adiciona um, apenas um, nó aleatório da vizinhança à lista
     //A função recomeça com a posição do "zombie" para cada elemento a encontrar
 
     protected override void Begin() {                           //1 Inicia a função
@@ -46,19 +45,17 @@ public class RandomSearch : SearchAlgorithm {
             }
             else                                            //2.3.2 Insere elementos ao fim da lista
             {
-                openList.Clear();
+                //se não é solução vai buscar os sucessores do nó
 
-                List<Node> neighbours = new List<Node>();
-                neighbours = GetNodeSucessors(currentState.node);
+                openList.Clear(); //limpa a lista removendo o nó que não era solução
 
-                random = Random.Range(0, neighbours.Count); //valor aleatório gerado no fim de cada iteração, de modo a escolher o seguinte
+                List<Node> neighbours = new List<Node>(); //cria um lista que contem os nós da vizinhança
+                neighbours = GetNodeSucessors(currentState.node); //devolve a lista com os nós
+
+                random = Random.Range(0, neighbours.Count); //como a vizinhança pode ir de zero a 4 nós, o random é gerado
+                                                            //de acordo com o cumprimento da lista de nós vizinhos
 
                 SearchState new_node = new SearchState(neighbours[random], neighbours[random].gCost + currentState.g, currentState); //define o nó que vai adicionar
-
-                //se não é solução vai buscar os sucessores do nó
-              
-                    //cria um novo estado e um novo nó
-                    //volta acima
                 openList.Add(new_node); //adiciona o  nó
                 
                 // for energy
