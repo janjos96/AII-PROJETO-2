@@ -30,7 +30,7 @@ public class Aprofundamento_Progressivo : SearchAlgorithm {
 	}
 	//está sempre a repetir - sempre a ser chamado
 	protected override void Step () {						//2 Repete
-		//se a pilha não esta vazia
+		//se a pilha não está vazia
 		if (openStack.Count > 0)
 		{
 			//tira o node na cabeça
@@ -38,7 +38,7 @@ public class Aprofundamento_Progressivo : SearchAlgorithm {
 			VisitNode (currentState);
 			//verifica se o node é solução
 			if (currentState.node == targetNode) {          //2.3
-				//se é solucao termina
+				//se é solução termina
 				solution = currentState;					//2.3.1
 				finished = true;
 				running = false;
