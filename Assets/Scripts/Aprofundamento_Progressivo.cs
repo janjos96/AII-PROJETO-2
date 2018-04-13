@@ -24,7 +24,7 @@ public class Aprofundamento_Progressivo : SearchAlgorithm {
 		//Cria a pilha e insere o node inicial
 		SearchState start = new SearchState (startNode, 0); //nó inicial
 		openStack = new Stack<SearchState> ();
-		openStack.Push(start);
+        openStack.Push(start); //adiciona o nó à pilha
 		maxdepth = 0; //inicia a maxdepth a 0 pois ainda não verificou nada
 
 	}

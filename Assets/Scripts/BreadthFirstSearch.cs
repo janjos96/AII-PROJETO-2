@@ -11,7 +11,7 @@ public class BreadthFirstSearch : SearchAlgorithm {
     //Analisa e verifica se é solução
     //Se for solução devolve o elemento 
     //Se nao for solução determina os sucessores e adiciona-os ao fim da fila
-    //A diferença entre largura e profundidade limitada é que no 2.3.2
+    //A diferença entre largura e profundidade é que no 2.3.2
     //adicionamos os nós sucessores no fim da fila e por ser FIFO o primeiro a entrar vai ser o primeiro a sair
     //e por isso percorre cada nível de cada vez
     //A função recomeça com a posição do "zombie" para cada elemento a encontrar
