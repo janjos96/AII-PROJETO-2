@@ -31,7 +31,7 @@ public class RandomSearch : SearchAlgorithm {
         //se a lista não está vazia
         if (openList.Count > 0)
         {
-            //tira o node no fim da lista menos o valor aleatório 0-3
+            //tira o único node da lista e verifica
             SearchState currentState = openList[0];       //2.2 Retira o elemento da lista
             VisitNode(currentState);
             //verifica se o node é solução
