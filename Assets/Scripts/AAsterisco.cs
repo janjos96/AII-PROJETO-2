@@ -38,7 +38,7 @@ public class AAsterisco : SearchAlgorithm
         //se a fila não está vazia
         if (openQueue.Count > 0)
         {
-            SearchState currentState = openQueue.PopFirst();        //2.2 Retira o elemento com h(n) mais baixo, está na primeira posição
+            SearchState currentState = openQueue.PopFirst();        //2.2 Retira o elemento com f(n) mais baixo, está na primeira posição
             VisitNode(currentState);
             //verifica se o node é solução
             if (currentState.node == targetNode)                    //2.3
@@ -57,7 +57,7 @@ public class AAsterisco : SearchAlgorithm
                     //cria um novo estado e um novo nó
                     //volta acima
                     SearchState new_node = new SearchState(suc, suc.gCost + currentState.g, GetHeuristic(suc), currentState);  //define o nó que vai adicionar
-                    openQueue.Add(new_node, (int)new_node.f); //adiciona o nó com o seu custo heuristico associado
+                    openQueue.Add(new_node, (int)new_node.f); //adiciona o nó com o seu custo f(n) associado
                 }
                 // for energy
                 if ((ulong)openQueue.Count > maxListSize)
