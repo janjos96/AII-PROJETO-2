@@ -34,10 +34,10 @@ public class BreadthFirstSearch : SearchAlgorithm {
 		if (openQueue.Count > 0)
 		{
             //tira o node no fim
-            SearchState currentState = openQueue.Dequeue();         //2.2 Retira o elemento no fim da fila (FIFO)
+            SearchState currentState = openQueue.Dequeue(); //2.2 Retira o elemento no fim da fila (FIFO)
 			VisitNode (currentState);
             //verifica se o node é solução
-            if (currentState.node == targetNode) { //2.3
+            if (currentState.node == targetNode) {          //2.3
                 //se é solucao termina
                 solution = currentState;                    //2.3.1
 				finished = true;

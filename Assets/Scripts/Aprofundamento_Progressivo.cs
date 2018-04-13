@@ -37,7 +37,7 @@ public class Aprofundamento_Progressivo : SearchAlgorithm {
             SearchState currentState = openStack.Pop();		//2.2 Retira o elemento à cabeça da pilha (LIFO)
 			VisitNode (currentState);
 			//verifica se o node é solução
-			if (currentState.node == targetNode) { //2.3
+			if (currentState.node == targetNode) {          //2.3
 				//se é solucao termina
 				solution = currentState;					//2.3.1
 				finished = true;
