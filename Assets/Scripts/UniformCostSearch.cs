@@ -9,7 +9,7 @@ public class UniformCostSearch : SearchAlgorithm
     private PriorityQueue openQueue = new PriorityQueue(); 
 
     //1 Começa a fazer a fila de prioridade com o estado inicial
-    //2 Entra no ciclo e caso a fila de prioridade não esteja vazia retira o elemento à cabeça da fila (FIFO)
+    //2 Entra no ciclo e caso a fila de prioridade não esteja vazia retira o elemento à cabeça da fila  
     //Analisa e verifica se é solução
     //Se for solução devolve o elemento 
     //Se nao for solução determina os sucessores e adiciona-os à fila de prioridade de acordo com o seu custo
