@@ -63,8 +63,8 @@ GameObject:
   - component: {fileID: 114241873160885290}
   - component: {fileID: 114793087681066076}
   - component: {fileID: 114564966802747530}
-  - component: {fileID: 114340559107274478}
   - component: {fileID: 114382779187857420}
+  - component: {fileID: 114340559107274478}
   m_Layer: 0
   m_Name: Seeker
   m_TagString: Unit
