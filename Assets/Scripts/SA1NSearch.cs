@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SASearch : SearchAlgorithm
+public class SA1NSearch : SearchAlgorithm
 {
 
     private List<SearchState> openList;
@@ -27,7 +27,7 @@ public class SASearch : SearchAlgorithm
     //implementar com uma lista onde só existe 1 nó mas os resultados foram diferentes, então separamos em dois scripts SASearch e SA1NSearch (1 nó)
 
     protected override void Begin() //1 Inicia a função
-    {                           
+    {
         startNode = GridMap.instance.NodeFromWorldPoint(startPos); //Verifica o nó inicial e a respectiva posição
         targetNode = GridMap.instance.NodeFromWorldPoint(targetPos); //Verifica o nó destino e a respectiva posição
 
@@ -43,6 +43,7 @@ public class SASearch : SearchAlgorithm
     //está sempre a repetir - sempre a ser chamado
     protected override void Step()                          //2 Repete
     {
+
         //Decrementa a variável seed à temperatura de modo a que temperatura desça
         T = polEscalona(T);                                 //2.1 PolEscalona
 
@@ -61,13 +62,22 @@ public class SASearch : SearchAlgorithm
             }
         }
 
-        foreach (Node suc in GetNodeSucessors(currentNode.node))
-        {                                                   //2.3 Escolhe o próximo nó aleatóriamente
-            SearchState new_node = new SearchState(suc, suc.gCost + currentNode.g, currentNode);
-            openList.Add(new_node);
+
+        openList.Clear(); //limpa a lista removendo o nó que não era solução
+
+        List<Node> neighbours = new List<Node>(); //cria um lista que contem os nós da vizinhança
+        neighbours = GetNodeSucessors(currentNode.node); //devolve a lista com os nós
+
+        random = Random.Range(0, neighbours.Count); //como a vizinhança pode ir de zero a 4 nós, o random é gerado
+                                                    //de acordo com o cumprimento da lista de nós vizinhos
+
+        // for energy
+        if ((ulong)openList.Count > maxListSize)
+        {
+            maxListSize = (ulong)openList.Count;
         }
                                                             //2.3 Escolhe o próximo nó aleatóriamente
-        SearchState nextNode = openList[Random.Range(0, openList.Count)];      
+        SearchState nextNode = new SearchState(neighbours[random], neighbours[random].gCost +  currentNode.g, GetHeuristic(neighbours[random]),  currentNode); //define o nó que vai adicionar
 
         // for energy
         if ((ulong)openList.Count > maxListSize)
@@ -76,21 +86,21 @@ public class SASearch : SearchAlgorithm
         }
                                                             //2.4 Compara Heuristica do nó corrente com o nó seguinte
         if (GetHeuristic(nextNode.node) <= GetHeuristic(currentNode.node))
-        {   
-            currentNode =  nextNode;                        //2.4.1 Caso seja melhor dá update para esse nó
+        {
+            currentNode = nextNode;                         //2.4.1 Caso seja melhor dá update para esse nó
             updateBestNode(currentNode);
         }
         else                                                //2.4 Compara Heuristica do nó corrente com o nó seguinte
-        {                           
-                                                            //2.4.2 Caso não seja melhor ainda pode ser escolhido pelo valo
-                                                            //retribuido por e^deltaE/T, caso a variavel random tenha um valor menor
+        {
+            //2.4.2 Caso não seja melhor ainda pode ser escolhido pelo valo
+            //retribuido por e^deltaE/T, caso a variavel random tenha um valor menor
             float r = Random.Range(0, rmax);
-            deltaE = GetHeuristic(currentNode.node) - GetHeuristic( nextNode.node);
-            float prob = Mathf.Exp( deltaE / T);
+            deltaE = GetHeuristic(currentNode.node) - GetHeuristic(nextNode.node);
+            float prob = Mathf.Exp(deltaE / T);
 
             if (r < prob)
             {
-                currentNode =  nextNode;
+                currentNode = nextNode;
                 updateBestNode(currentNode);
             }
         }
